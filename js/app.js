@@ -48,7 +48,7 @@ class Player {
             this.posY = this.posY += 85;
         }
     }
-
+    //Detects wether the player collided with an enemy 
     detectCollision() {
         for (let enemy of allEnemies) {
             if (this.posX > enemy.posX && this.posX < enemy.posX + 75 && this.posY === enemy.posY) {
@@ -59,12 +59,11 @@ class Player {
             }
         }
     }
-
+    //When player collides, reset.
     onCollide() {
-        console.log('Collision!');
         reset();
     }
-
+    //checks to see if the player has reached the water
     checkWin() {
         if (player.posY < 40) {
             modal.style.display = 'block';
@@ -90,10 +89,12 @@ let enemy3 = new Enemy(-100, 230);
 const allEnemies = [enemy1, enemy2, enemy3];
 const player = new Player();
 
+//Random number generator 
 function RNG(a, b) {
     return Math.floor(Math.random() * (a - b) + b);
 }
 
+//function to reset the game
 function reset() {
     player.posX = 200;
     player.posY = 400;
@@ -103,7 +104,8 @@ function reset() {
         el.speed = RNG(250, 100);
     });
 };
-   
+
+//Event listener for reset button
 resetBtn.addEventListener('click', reset);
 
 document.addEventListener('keyup', function(e) {
