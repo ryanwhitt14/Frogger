@@ -99,7 +99,7 @@ function reset() {
         el.speed = Math.floor(Math.random() * (200 - 100) + 100);
     });
 };
-  
+   
 resetBtn.addEventListener('click', reset);
 
 document.addEventListener('keyup', function(e) {
