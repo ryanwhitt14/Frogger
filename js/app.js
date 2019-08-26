@@ -7,7 +7,7 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.posX = posX;
         this.posY = posY;
-        this.speed = Math.floor(Math.random() * (200 - 100) + 100);
+        this.speed = RNG(250, 100);
     }
     // Parameter: dt, a time delta between ticks
     update(dt) {
@@ -15,7 +15,7 @@ class Enemy {
        allEnemies.forEach(el => {
            if (el.posX > 500) {
                el.posX = -100;
-               el.speed = el.speed;
+               el.speed = RNG(250, 100);
            }
        });
     }
@@ -90,13 +90,17 @@ let enemy3 = new Enemy(-100, 230);
 const allEnemies = [enemy1, enemy2, enemy3];
 const player = new Player();
 
+function RNG(a, b) {
+    return Math.floor(Math.random() * (a - b) + b);
+}
+
 function reset() {
     player.posX = 200;
     player.posY = 400;
     modal.style.display = 'none';
     allEnemies.forEach(el => {
         el.posX = -100;
-        el.speed = Math.floor(Math.random() * (200 - 100) + 100);
+        el.speed = RNG(250, 100);
     });
 };
    
