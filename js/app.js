@@ -9,15 +9,20 @@ class Enemy {
         this.posY = posY;
         this.speed = RNG(250, 100);
     }
+    //When an enemy goes off-screen it will go back to start with a new random speed.
+    enemyLoop(el) {
+        if (el.posX > 500) {
+            el.posX = -100;
+            el.speed = RNG(250, 100);
+        }
+    }
     // Parameter: dt, a time delta between ticks
     update(dt) {
         this.posX = this.posX += this.speed * dt;
-       allEnemies.forEach(el => {
-           if (el.posX > 500) {
-               el.posX = -100;
-               el.speed = RNG(250, 100);
-           }
-       });
+
+        this.enemyLoop(enemy1);
+        this.enemyLoop(enemy2);
+        this.enemyLoop(enemy3);
     }
     // render enemy on canvas
     render() {
@@ -65,7 +70,7 @@ class Player {
     }
     //checks to see if the player has reached the water
     checkWin() {
-        if (player.posY < 40) {
+        if (this.posY < 40) {
             modal.style.display = 'block';
             allEnemies.forEach(el => {
                 el.speed = 0;
