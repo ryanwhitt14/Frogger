@@ -20,9 +20,9 @@ class Enemy {
     update(dt) {
         this.posX = this.posX += this.speed * dt;
 
-        this.enemyLoop(enemy1);
-        this.enemyLoop(enemy2);
-        this.enemyLoop(enemy3);
+        this.enemyLoop(this);
+        this.enemyLoop(this);
+        this.enemyLoop(this);
     }
     // render enemy on canvas
     render() {
@@ -113,7 +113,7 @@ function reset() {
 //Event listener for reset button
 resetBtn.addEventListener('click', reset);
 
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
