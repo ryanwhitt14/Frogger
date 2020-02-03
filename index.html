@@ -2,17 +2,23 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
+    <title>Frogger</title>
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC|Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <h3 class="star-count">Star Count: 0</h3>
+    <p class="game-info">
+        How many stars can you get? Reach the water to end the game. If you hit a lady bug the game will reset and all stars are lost.
+    </p>
     <div class="modal">
         <h1 class="win">
             YOU WIN!!!           
         </h1>
-        <span class="reset">
+        <h3 class="star-count-modal"></h3>
+        <button class="reset">
             play again?
-        </span>
+        </button>
     </div>
  
     <script src="js/resources.js"></script>
